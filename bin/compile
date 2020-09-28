@@ -1,7 +1,7 @@
 #!/bin/bash
 
-APP_DIR="$1"
-ENV_DIR="$3"
+APP_DIR=${1:-}
+ENV_DIR=${3:-}
 
 # load required environment variables
 GIT_REPO_URL=$(<"$ENV_DIR/GIT_REPO_URL")
