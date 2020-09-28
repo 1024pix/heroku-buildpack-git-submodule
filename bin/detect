@@ -1,14 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
-set -o pipefail
-shopt -s dotglob
+# set -x
 
-BUILD_DIR=${1:-}
-
-if [ ! -f "$BUILD_DIR/.gitmodules" ]; then
-    exit 1
-fi
-
-echo "Git submodules"
-exit 0
+echo "Git submodules" && exit 0
