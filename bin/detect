@@ -1,8 +1,12 @@
 #!/bin/sh
 
-app_dir="$1"
+set -e
+set -o pipefail
+shopt -s dotglob
 
-if [ ! -f "$app_dir/.gitmodules" ]; then
+BUILD_DIR=${1:-}
+
+if [ ! -f "$BUILD_DIR/.gitmodules" ]; then
     exit 1
 fi
 
