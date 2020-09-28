@@ -1,6 +1,11 @@
 #!/bin/bash
 
-APP_DIR=${1:-}
+set -e
+set -o pipefail
+shopt -s dotglob
+
+BUILD_DIR=${1:-}
+CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 
 # load required environment variables
@@ -18,7 +23,7 @@ if [[ -z $GIT_SSH_KEY ]]; then
 fi
 
 # make sure we're in the root of the app dir
-cd "$APP_DIR"
+cd "$BUILD_DIR"
 
 # remove existing .gitmodules, we'll check out it again
 rm .gitmodules
